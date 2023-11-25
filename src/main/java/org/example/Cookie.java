@@ -1,15 +1,33 @@
 package org.example;
 
+/**
+ * The Cookie class represents a type of sweet with additional information about its gluten-free status.
+ * It extends the Sweet class and inherits its properties such as name and weight.
+ */
 class Cookie extends Sweet {
-    boolean glutenFree;
 
-    // Конструктор
+    /**
+     * A flag indicating whether the cookie is gluten-free or not.
+     */
+    private boolean glutenFree;
+
+    /**
+     * Constructs a Cookie object with the specified name, weight, and gluten-free status.
+     *
+     * @param name       The name of the cookie.
+     * @param weight     The weight of the cookie, measured in some unit.
+     * @param glutenFree A boolean flag indicating whether the cookie is gluten-free or not.
+     */
     public Cookie(String name, double weight, boolean glutenFree) {
         super(name, weight);
         this.glutenFree = glutenFree;
     }
 
-    // Метод для перевірки наявності глютену
+    /**
+     * Checks if the cookie is gluten-free.
+     *
+     * @return {@code true} if the cookie is gluten-free, {@code false} otherwise.
+     */
     public boolean isGlutenFree() {
         return glutenFree;
     }

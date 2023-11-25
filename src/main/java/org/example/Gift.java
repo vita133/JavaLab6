@@ -5,13 +5,29 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * The Gift class represents a collection of sweets.
+ */
 class Gift {
+    /**
+     * The list containing the sweets in the gift.
+     */
     List<Sweet> sweetsList = new ArrayList<>();
 
+    /**
+     * Adds a sweet to the gift.
+     *
+     * @param sweet The sweet to be added to the gift.
+     */
     public void addSweet(Sweet sweet) {
         sweetsList.add(sweet);
     }
 
+    /**
+     * Calculates the total weight of all sweets in the gift.
+     *
+     * @return The total weight of the sweets in the gift, measured in some unit.
+     */
     public double calculateWeight() {
         double totalWeight = 0;
         for (Sweet sweet : sweetsList) {
@@ -20,10 +36,22 @@ class Gift {
         return totalWeight;
     }
 
+    /**
+     * Sorts the sweets in the gift using the provided comparator.
+     *
+     * @param comparator The comparator to be used for sorting the sweets.
+     */
     public void sortSweets(Comparator<Sweet> comparator) {
-        Collections.sort(sweetsList, comparator);
+        sweetsList.sort(comparator);
     }
 
+    /**
+     * Finds candies in the gift with chocolate content within the specified range.
+     *
+     * @param min The minimum chocolate content for the candies.
+     * @param max The maximum chocolate content for the candies.
+     * @return A list of candies with chocolate content within the specified range.
+     */
     public List<Candy> findCandyByChocolateContent(double min, double max) {
         List<Candy> result = new ArrayList<>();
         for (Sweet sweet : sweetsList) {
