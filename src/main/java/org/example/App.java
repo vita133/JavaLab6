@@ -15,22 +15,17 @@ public class App
         Jelly jelly1 = new Jelly("Fruit Jelly", 0.03, "Mixed Fruit");
         Cookie cookie1 = new Cookie("Chocolate Chip Cookie", 0.02, true);
 
-        Gift gift = new Gift();
+        Gift<Sweet> gift = new Gift<>();
         gift.addSweet(candy1);
         gift.addSweet(jelly1);
         gift.addSweet(cookie1);
-        for (Sweet sweet : gift.sweetsList) {
-            System.out.println(sweet.name + " - " + sweet.getWeight() + " kg");
-        }
+        gift.printGift();
 
         System.out.println("Gift Weight: " + gift.calculateWeight() + " kg");
 
         gift.sortSweets(Comparator.comparing(Sweet::getWeight));
-
         System.out.println("Gift Weight after sorting: ");
-        for (Sweet sweet : gift.sweetsList) {
-            System.out.println(sweet.name + " - " + sweet.getWeight() + " kg");
-        }
+        gift.printGift();
 
         List<Candy> selectedCandies = gift.findCandyByChocolateContent(0.6, 0.8);
         System.out.println("Selected candies:");

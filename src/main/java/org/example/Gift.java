@@ -1,25 +1,24 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 /**
  * The Gift class represents a collection of sweets.
  */
-class Gift {
+class Gift<T extends Sweet> {
     /**
      * The list containing the sweets in the gift.
      */
-    List<Sweet> sweetsList = new ArrayList<>();
+    List<T> sweetsList = new ArrayList<>();
 
     /**
      * Adds a sweet to the gift.
      *
      * @param sweet The sweet to be added to the gift.
      */
-    public void addSweet(Sweet sweet) {
+    public void addSweet(T sweet) {
         sweetsList.add(sweet);
     }
 
@@ -41,7 +40,7 @@ class Gift {
      *
      * @param comparator The comparator to be used for sorting the sweets.
      */
-    public void sortSweets(Comparator<Sweet> comparator) {
+    public void sortSweets(Comparator<T> comparator) {
         sweetsList.sort(comparator);
     }
 
@@ -63,5 +62,11 @@ class Gift {
             }
         }
         return result;
+    }
+
+    public void printGift(){
+        for (Sweet sweet : sweetsList) {
+            System.out.println(sweet.name + " - " + sweet.getWeight() + " kg");
+        }
     }
 }
